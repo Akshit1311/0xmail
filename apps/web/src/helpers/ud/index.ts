@@ -9,9 +9,14 @@ const uauth = new UAuth({
 
 export const logintoud = async () => {
   try {
-    const authorization = await uauth.loginWithPopup();
+    const { idToken } = await uauth.loginWithPopup();
 
-    console.log(authorization);
+    console.log({ idToken });
+
+    return {
+      ud: idToken.sub,
+      walletAddress: idToken.wallet_address,
+    };
   } catch (error) {
     console.error(error);
   }

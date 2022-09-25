@@ -1,11 +1,13 @@
 import Image from "next/image";
 import React from "react";
 import Button from "../../common/Button";
+import WalletButton from "../../WalletButton/WalletButton";
 import SidebarIcons from "../Sidebar/SidebarIcons";
 
 const SingleMail = () => {
   return (
     <div className="flex flex-col flex-1 p-6">
+      <WalletButton />
       <div className="text-slate-400 font-medium">
         Today, 16th September 2022. 11:28
       </div>
