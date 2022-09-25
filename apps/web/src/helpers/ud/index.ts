@@ -1,9 +1,12 @@
+/* eslint-disable turbo/no-undeclared-env-vars */
 import UAuth from "@uauth/js";
 
 const uauth = new UAuth({
-  // eslint-disable-next-line turbo/no-undeclared-env-vars
   clientID: process.env.NEXT_PUBLIC_CLIENTID as string,
-  redirectUri: "http://localhost:3000",
+  redirectUri:
+    process.env.NODE_ENV === "production"
+      ? "https://0xmail.vercel.app/"
+      : "http://localhost:3000",
   scope: "openid wallet",
 });
 
