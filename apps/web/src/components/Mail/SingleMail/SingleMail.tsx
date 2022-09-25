@@ -1,10 +1,26 @@
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
+import { sendEpnsNotif } from "../../../helpers/epns";
 import Button from "../../common/Button";
 import WalletButton from "../../WalletButton/WalletButton";
-import SidebarIcons from "../Sidebar/SidebarIcons";
 
 const SingleMail = () => {
+  const [epnsData, setEpnsData] = useState({
+    recipient: "0xb69cf8f29A01c0DC43f56F96458368DfC020eB27",
+    title: "Welcome to 0xMail",
+    body: "This works prettyy well",
+  });
+
+  const handleClick = () => {
+    const { recipient, title, body } = epnsData;
+
+    sendEpnsNotif(recipient, title, body);
+  };
+
+  const onChange = (e: any) => {
+    setEpnsData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
   return (
     <div className="flex flex-col flex-1 p-6">
       <WalletButton />
@@ -26,28 +42,27 @@ const SingleMail = () => {
         <div className="font-medium">John Doe</div>
       </div>
 
-      <div className="flex-1">
-        Hi Akshit!
-        <br />
-        <br />
-        Thank you for your contribution to the IPFS Community and for filling
-        out the IPFS Scholar application form 😊 We&apos;re very excited to tell
-        you that your application to the IPFS Scholar program has been accepted
-        🥳 <br />
-        <br />
-        Regards,
-        <br />
-        Jane Doe
-      </div>
+      <input
+        type="text"
+        name="title"
+        placeholder="Type"
+        value={epnsData.title}
+        className="w-full bg-slate-100 outline-none p-4 rounded-lg"
+        onChange={onChange}
+      />
+      <br />
 
       <textarea
+        value={epnsData.body}
+        name="body"
         className="w-full bg-slate-100 outline-none p-4 rounded-lg"
         cols={30}
         rows={10}
         placeholder="Type your message here..."
-      ></textarea>
+        onChange={onChange}
+      />
       <div className="ml-auto mt-4">
-        <Button>
+        <Button onClick={handleClick}>
           Send Email&nbsp;
           <svg
             xmlns="http://www.w3.org/2000/svg"

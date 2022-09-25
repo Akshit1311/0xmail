@@ -1,13 +1,11 @@
 import React, { useEffect } from "react";
 import { WidgetProps } from "@worldcoin/id";
 import dynamic from "next/dynamic";
-import { logintoud, logoutfromud } from "../../helpers/ud/index";
-import { verificationResponse } from "../../helpers/worldCoin";
-import { NextPage } from "next";
+import { logintoud } from "../../helpers/ud/index";
 import { useWalletStore } from "../../zustand";
 import Image from "next/image";
-import WalletButton from "../../components/WalletButton/WalletButton";
 import { useRouter } from "next/router";
+import { verify } from "../../helpers/worldCoin";
 
 const WorldIDWidget: any = dynamic<WidgetProps>(
   () => import("@worldcoin/id").then((mod) => mod.WorldIDWidget),
@@ -19,7 +17,7 @@ const widgetProps: WidgetProps = {
   actionId: process.env.NEXT_PUBLIC_ACTION_ID as string,
   signal: "my_signal",
   enableTelemetry: true,
-  onSuccess: (verificationResponse) => console.log(verificationResponse),
+  onSuccess: (verificationResponse) => verify(verificationResponse),
   onError: (error) => console.error(error),
 };
 

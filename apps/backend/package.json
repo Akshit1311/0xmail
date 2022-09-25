@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@epnsproject/sdk-restapi": "^0.1.13",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.2",
     "ethers": "^5.7.1",
     "express": "^4.17.3",

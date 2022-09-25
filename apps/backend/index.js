@@ -2,8 +2,10 @@ import express from "express";
 import { targetNotification } from "./epns.js";
 // const sendEpnsNotif = require("./epns");
 import { makeFileObjects } from "./filecoin.js";
+import cors from "cors";
 
 const app = express();
+app.use(cors());
 
 app.post("/epns", async (req, res) => {
   const { query } = req;

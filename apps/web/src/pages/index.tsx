@@ -1,7 +1,5 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
 import Login from "../components/Login/Login";
 import WalletButton from "../components/WalletButton/WalletButton";
 
@@ -9,28 +7,9 @@ const Home: NextPage = () => {
   return (
     <div className="min-h-screen grid place-items-center">
       <Head>
-        <title>Create Next App</title>
+        <title>0xMail</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {/* <nav>
-        <ul className="flex p-5 justify-between">
-          <Link href="/">
-            <li className="p-5">Home</li>
-          </Link>
-          <Link href="/about">
-            <li className="p-5">About</li>
-          </Link>
-          <Link href="/blog">
-            <li className="p-5">Pricing</li>
-          </Link>
-          <Link href="/contact">
-            <li className="p-5 mr-80">Contact</li>
-          </Link>
-
-          <button className="ml-80 mr-10 pr-15 pl-5">Sign up now</button>
-          <button className="p-5">Sign in</button>
-        </ul>
-      </nav> */}
 
       <div>
         <WalletButton />
