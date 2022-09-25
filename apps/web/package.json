@@ -8,6 +8,10 @@
     "start": "next start"
   },
   "dependencies": {
+    "@uauth/js": "^2.4.0",
+    "@worldcoin/id": "^0.8.0",
+    "axios": "^0.27.2",
+    "dotenv": "^16.0.2",
     "next": "latest",
     "react": "18.1.0",
     "react-dom": "18.1.0"
